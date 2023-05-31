@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.forms import UserCreationForm
-
+from .forms import CustomUserCreationForm
 # Create your views here.
 
 def index(request):
@@ -30,7 +30,7 @@ def logout_view(request):
 
 def main(request):
     if not request.user.is_authenticated:
-         return HttpResponseRedirect(reverse("login", message="Please login first"))
+         return HttpResponseRedirect(reverse("login"))
     return render(request, 'tracker/main.html')
 
 def signup(request):
@@ -39,11 +39,11 @@ def signup(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         """
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('main'))  # Redirect to a success page
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'tracker/signup.html', {
         'form': form})
