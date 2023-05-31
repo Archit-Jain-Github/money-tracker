@@ -13,6 +13,7 @@ def test(request):
     return render(request, 'tracker/test.html')
 
 def login_view(request):
+    message = ''
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -22,14 +23,14 @@ def login_view(request):
             return HttpResponseRedirect(reverse('main'))
         else:
             return render(request, 'tracker/login.html', {'message': 'Invalid credentials'})
-    return render(request, 'tracker/login.html')
+    return render(request, 'tracker/login.html', {'message': message})
 
 def logout_view(request):
     pass
 
 def main(request):
     if not request.user.is_authenticated:
-         return HttpResponseRedirect(reverse("login"))
+         return HttpResponseRedirect(reverse("login", message="Please login first"))
     return render(request, 'tracker/main.html')
 
 def signup(request):
@@ -45,5 +46,4 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'tracker/signup.html', {
-        'message':'invalid credentials',
         'form': form})
