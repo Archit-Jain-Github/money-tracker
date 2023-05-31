@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moneytrack+</title>
+    <link href="{% static 'tracker/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- header tag -->
+    <header>
+        <h1>moneytrack+</h1>
+    </header>
+    <!-- navigation bar -->
+    <nav>
+        <a href="{% url 'index' %}" target="_blank" >Home</a>
+        <a href="{% url 'login' %}" target="_blank" >Login</a>
+        <a href="{% url 'signup' %}" target="_blank" >SignUp</a>
+    </nav>
+    {% block main %}
+    
+    {% endblock %}
+    <!-- footer  -->
+    <footer>
+        <hr>
+        <div>
+            <pre>Know more about the Vision... <a href="/Yuva's KNACK Idea Proposal.pdf"  target="_blank" > Click Here </a> </pre>
+        </div>
+        <hr>
+        <pre>Contact us...</pre>
+        <pre>Mail us : official@moneytrack.com</pre>
+        <pre>Call us : 98989XXXXX</pre>
+        <hr>
+        <pre>Copyright © 2023 moneytrack+ inc.</pre>
+        <pre>All rights reserved.</pre>
+    </footer>
+</body>
+</html> 

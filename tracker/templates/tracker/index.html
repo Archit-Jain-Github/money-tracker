@@ -1,0 +1,55 @@
+{% extends 'tracker/layout.html' %}
+{% load static %}
+{% block main%}
+    <main>
+        <!-- video  -->
+        <centre>
+            <video src="{% static 'tracker/intro.mp4' %}" autoplay loop muted width="100%" height="auto" ></video>
+        </centre>
+        
+        <!-- aim table -->
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="2"><b><h1>Key features:</h1></b></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><pre>
+                        1.Expense tracking: Users can easily log their expenses by category, date, and amount.
+
+2.Budget management: Users can set up budgets for different categories of expenses and
+receive alerts when they are about to exceed their set limits.
+
+3.Goal setting: Users can set financial goals, such as saving for a vacation or a down
+payment on a house, and track their progress towards achieving those goals.
+
+4.Personalised Suggestion: Users can get personalised suggestions and tips to cut down
+expenses and waste money.
+
+                        </pre>
+                    </td>
+                    <td>
+                        <video src="{% static 'tracker/aim.mp4' %}" autoplay loop muted width="100%" height="auto" ></video>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th colspan="2"><b></b></th>
+                </tr>
+            </tfoot>
+        </table>
+
+
+        <!-- login/signup  -->
+        <p>Already a User <a href="{% url 'login' %}"  target="_blank" >Login</a> Here</p>
+        
+        <p>New User <a href="{% url 'signup' %}" target="_blank">SignUp</a> Here</p>
+        
+    </main>
+
+{% endblock %}

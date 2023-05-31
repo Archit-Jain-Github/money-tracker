@@ -1,0 +1,46 @@
+{% extends 'tracker/layout.html' %}
+{% load static %}
+{% block main %}
+{% if message %}
+    {{message}}
+{% endif %}
+    <center>
+        <br>
+        <video src="/moneytrack+_structure/Profile_SignUp.mp4" autoplay loop muted width="40%" height="auto" ></video>
+    </center>
+
+    <!-- Creating account-->
+    <center>
+        {% if message %}
+            {{message}}
+        {% endif %}
+        <form action="{% url 'signup' %}" method="post"> 
+            <!-- <pre><b>First Name     </b>:<input type="text" name="firstname" required></pre> -->
+
+            <!-- <pre><b>Last Name      </b>:<input type="text" name="lastname" required></pre> -->
+
+            <!-- <pre><b>DOB            </b>:<input type="date" name="dob" required></pre>
+
+            <pre><b>Gender         </b>:<input type="text" name="gender" required></pre> -->
+
+            <!-- <pre><b>Email ID       </b>:<input type="email" name="email" required></pre> -->
+
+            <!-- <pre><b>Phone Number   </b>:<input type="number" name="phone" required></pre> -->
+
+            <!-- <pre><b>Username        </b>:<input type="text" name="username" required></pre>
+
+            <pre><b>Password        </b>:<input type="password" name="password1" required></pre><br>
+            <pre><b>Confirm Password</b>:<input type="password" name="password2" required></pre><br> -->
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="SignUp">
+        </form>
+    </center>
+        
+    <!-- Going to login page -->
+    <pre>Already a User <a href="{% url 'login' %}"  target="_blank" >Login</a> Here</pre>
+
+    </main>
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'tracker/layout.html' %}
+{% load static %}
+{% block main%}
+<!-- main  -->
+    <main>
+
+        <!-- Profile Image -->
+        <center>
+            <br>
+        <video src="{% static 'tracker/Profile_login.mp4' %}" autoplay loop muted width="40%" height="auto" ></video>
+        </center>
+
+        <!-- Creating login details -->
+        <center>
+            {% if message %}
+                {{message}}
+            {% endif %}
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+
+                <pre><b>Username       </b><input type="text" name="username" required></pre>
+    
+                <pre><b>Password       </b><input type="password" name="password" required></pre><br>
+    
+                    <input type="submit" value="Login">
+            </form>
+        </center>
+
+
+        <!-- Going to SignUp page -->
+        <p>New User <a href="{% url 'signup' %}" target="_blank" >SignUp</a> Here</p>
+
+    </main>
+
+{% endblock %}
